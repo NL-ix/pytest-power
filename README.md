@@ -1,5 +1,7 @@
 # pytest-power
 
+[![PyPI](https://img.shields.io/pypi/v/pytest-power?style=flat-square)](https://pypi.org/project/pytest-power/)
+
 Adds a number of shorthands for fixtures and other helpers for easier testing:
 
 - patch.object
