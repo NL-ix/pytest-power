@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "pytest-power"
+version = "0.1.0"
+description = "pytest plugin with powerful fixtures"
+license = "MIT"
+authors = ["Jacopo Cascioli <jacopo@nl-ix.net>"]
+homepage = "https://github.com/nl-ix/pytest-power"
+repository = "https://github.com/nl-ix/pytest-power"
+classifiers = [
+  "Framework :: Pytest",
+  "Topic :: Software Development :: Testing"
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+pytest = "^5.4.3"
+pytest-mock = "^3.1.1"
+
+[tool.poetry.dev-dependencies]
+coverage = "^5.1"
+flake8 = "^3.8.3"
+flake8-quotes = "^3.2.0"
+flake8-import-order = "^0.18.1"
+pep8-naming = "^0.11.1"
+
+[tool.poetry.plugins."pytest11"]
+"pytest_power" = "pytest_power.pytest_power"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
