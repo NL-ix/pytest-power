@@ -17,19 +17,6 @@ def test_patch_init(patch_init):
     Path.__init__.assert_called_with('path')
 
 
-def test_patch_init__autospec(patch_init):
-    patch_init(Path)
-    Path('path')
-    with raises(AttributeError):
-        Path.__init__.whatever('path')
-
-
-def test_patch_init__autospec_false(patch_init):
-    patch_init(Path, autospec=False)
-    Path('path')
-    assert Path.__init__.whatever('path')
-
-
 def test_patch_init__kwargs(patch_init):
     patch_init(Path, key='value')
 
