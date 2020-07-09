@@ -17,4 +17,4 @@ def test_patchable_attributes__excludes():
 def test_patchable_attributes__includes():
     item = type('object', (object, ), {'yes': 'yes', '__no__': 'no'})
     result = Utils.patchable_attributes(item, includes=['__no__'])
-    assert list(result) == ['yes', '__no__']
+    assert list(result) == ['yes', '__no__'] or ['__no__', 'yes']
