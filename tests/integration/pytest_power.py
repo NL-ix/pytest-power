@@ -46,10 +46,15 @@ def test_patch_many__kwargs(patch_many):
 
 def test_patch_everything(patch_everything):
     patch_everything(json)
-    assert isinstance(json.dumps, MagicMock)
-    assert isinstance(json.loads, MagicMock)
+    assert isinstance(json.dumps('whatever'), MagicMock)
+    assert isinstance(json.loads('whatever'), MagicMock)
     assert not isinstance(json.__doc__, MagicMock)
     assert not isinstance(json.__builtins__, MagicMock)
+
+
+def test_patch_everything__autospec_false(patch_everything):
+    patch_everything(json, autospec=False)
+    assert isinstance(json.dumps('too', 'much', 'stuff'), MagicMock)
 
 
 def test_patch(patch, patch_init, patch_many, patch_everything):
