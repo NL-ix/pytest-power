@@ -2,7 +2,7 @@
 import json
 import os
 from pathlib import Path
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, NonCallableMagicMock
 
 from pytest import raises
 
@@ -61,6 +61,11 @@ def test_patch_everything__excludes(patch_everything):
     patch_everything(json, excludes=['_default_decoder', 'loads', 'decoder'])
     with raises(json.decoder.JSONDecodeError):
         json.loads('whatever')
+
+
+def test_patch_everything__includes(patch_everything):
+    patch_everything(json, includes=['__doc__'])
+    assert isinstance(json.__doc__, NonCallableMagicMock)
 
 
 def test_patch(patch, patch_init, patch_many, patch_everything):

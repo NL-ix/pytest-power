@@ -38,8 +38,9 @@ def patch_everything(mocker):
     """
     Patches every attribute of an object.
     """
-    def patch_everything(item, autospec=True, excludes=None):
-        for attribute in Utils.patchable_attributes(item, excludes=excludes):
+    def patch_everything(item, autospec=True, excludes=None, includes=None):
+        for attribute in Utils.patchable_attributes(item, excludes=excludes,
+                                                    includes=includes):
             mocker.patch.object(item, attribute, autospec=autospec)
     return patch_everything
 
