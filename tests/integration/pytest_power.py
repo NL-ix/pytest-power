@@ -57,6 +57,12 @@ def test_patch_everything__autospec_false(patch_everything):
     assert isinstance(json.dumps('too', 'much', 'stuff'), MagicMock)
 
 
+def test_patch_everything__excludes(patch_everything):
+    patch_everything(json, excludes=['_default_decoder', 'loads', 'decoder'])
+    with raises(json.decoder.JSONDecodeError):
+        json.loads('whatever')
+
+
 def test_patch(patch, patch_init, patch_many, patch_everything):
     assert patch.init == patch_init
     assert patch.many == patch_many
