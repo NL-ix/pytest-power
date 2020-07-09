@@ -1,6 +1,7 @@
 # pytest-power
 
-[![PyPI](https://img.shields.io/pypi/v/pytest-power?style=flat-square)](https://pypi.org/project/pytest-power/)
+![python](https://github.com/NL-ix/pytest-power/workflows/python/badge.svg)
+[![PyPI](https://img.shields.io/pypi/v/pytest-power?style=flat)](https://pypi.org/project/pytest-power/)
 
 Adds a number of shorthands for fixtures and other helpers for easier testing:
 
