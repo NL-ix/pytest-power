@@ -42,7 +42,10 @@ def patch_everything(mocker):
     def patch_everything(item, autospec=True, excludes=None, includes=None):
         for attribute in Utils.patchable_attributes(item, excludes=excludes,
                                                     includes=includes):
-            mocker.patch.object(item, attribute, autospec=autospec)
+            if attribute == '__init__':
+                mocker.patch.object(item, attribute, return_value=None)
+            else:
+                mocker.patch.object(item, attribute, autospec=autospec)
     return patch_everything
 
 

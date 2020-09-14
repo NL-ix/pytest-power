@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import os
+from csv import DictReader
 from pathlib import Path, PurePath
 from unittest.mock import MagicMock, NonCallableMagicMock
 
@@ -57,6 +58,12 @@ def test_patch_everything(patch_everything):
     assert isinstance(json.loads('whatever'), MagicMock)
     assert not isinstance(json.__doc__, MagicMock)
     assert not isinstance(json.__builtins__, MagicMock)
+
+
+def test_patch_everything__init__(patch_everything):
+    patch_everything(DictReader)
+    DictReader('f')
+    DictReader.__init__.assert_called_with('f')
 
 
 def test_patch_everything__autospec_false(patch_everything):
