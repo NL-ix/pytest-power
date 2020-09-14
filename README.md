@@ -63,6 +63,12 @@ so they have to be set again by hand.
 Keyword arguments are passed to underlying `patch.object`, and autospec is
 enabled by default.
 
+Multiple classes can be passed too:
+
+```python
+patch.init(App, Cli)
+```
+
 
 ### patch.many
 
