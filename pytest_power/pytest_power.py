@@ -17,8 +17,9 @@ def patch_init(mocker):
     """
     Makes patching a class' constructor slightly easier
     """
-    def patch_init(item, **kwargs):
-        mocker.patch.object(item, '__init__', return_value=None, **kwargs)
+    def patch_init(*args, **kwargs):
+        for item in args:
+            mocker.patch.object(item, '__init__', return_value=None, **kwargs)
     return patch_init
 
 

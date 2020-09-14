@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePath
 from unittest.mock import MagicMock, NonCallableMagicMock
 
 from pytest import raises
@@ -15,6 +15,13 @@ def test_patch_init(patch_init):
     patch_init(Path)
     Path('path')
     Path.__init__.assert_called_with('path')
+
+
+def test_patch_init__many(patch_init):
+    patch_init(Path, PurePath)
+    Path('path')
+    PurePath('path')
+    PurePath.__init__.assert_called_with('path')
 
 
 def test_patch_init__kwargs(patch_init):
