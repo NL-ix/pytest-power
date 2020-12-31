@@ -14,15 +14,15 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.5"
-pytest = "^5.4.3"
-pytest-mock = "^3.1.1"
+pytest = ">=5.4"
+pytest-mock = ">=3.1"
 
 [tool.poetry.dev-dependencies]
 coverage = "^5.1"
-flake8 = "^3.8.3"
-flake8-quotes = "^3.2.0"
-flake8-import-order = "^0.18.1"
-pep8-naming = "^0.11.1"
+flake8 = "^3.8"
+flake8-quotes = "^3.2"
+flake8-import-order = "^0.18"
+pep8-naming = "^0.11"
 
 [tool.poetry.plugins."pytest11"]
 "pytest_power" = "pytest_power.pytest_power"
